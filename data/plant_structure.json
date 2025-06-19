@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "apical",
+      "pos": [
+        0,
+        0,
+        0
+      ],
+      "age_days": 14,
+      "parent": null
+    },
+    {
+      "id": "n2",
+      "type": "side",
+      "pos": [
+        1,
+        0,
+        0
+      ],
+      "age_days": 7,
+      "parent": "n1"
+    }
+  ],
+  "edges": [
+    {
+      "from": "n1",
+      "to": "n2"
+    }
+  ]
+}

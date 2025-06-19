@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Max Yield",
+    "actions": [
+      {
+        "node_id": "n8",
+        "action": "top"
+      },
+      {
+        "node_id": "n5",
+        "action": "supercrop"
+      }
+    ],
+    "projections": [
+      {
+        "day": 7,
+        "height_cm": 90,
+        "canopy_spread_cm": 40
+      },
+      {
+        "day": 14,
+        "height_cm": 110,
+        "canopy_spread_cm": 50
+      }
+    ],
+    "evaluation": {
+      "yield_estimate": 1200,
+      "canopy_evenness_score": 85,
+      "stealth_height_score": 40
+    }
+  }
+]

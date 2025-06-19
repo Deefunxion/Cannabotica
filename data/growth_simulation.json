@@ -1,0 +1,126 @@
+[
+  {
+    "day": 7,
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "apical",
+        "pos": [
+          0,
+          0,
+          35.0
+        ],
+        "age_days": 21,
+        "parent": null,
+        "topped": false,
+        "stressed": false
+      },
+      {
+        "id": "n2",
+        "type": "side",
+        "pos": [
+          1,
+          0,
+          35.0
+        ],
+        "age_days": 14,
+        "parent": "n1",
+        "topped": false,
+        "stressed": false
+      }
+    ]
+  },
+  {
+    "day": 14,
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "apical",
+        "pos": [
+          0,
+          0,
+          35.0
+        ],
+        "age_days": 28,
+        "parent": null,
+        "topped": false,
+        "stressed": false
+      },
+      {
+        "id": "n2",
+        "type": "side",
+        "pos": [
+          1,
+          0,
+          35.0
+        ],
+        "age_days": 21,
+        "parent": "n1",
+        "topped": false,
+        "stressed": false
+      }
+    ]
+  },
+  {
+    "day": 21,
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "apical",
+        "pos": [
+          0,
+          0,
+          35.0
+        ],
+        "age_days": 35,
+        "parent": null,
+        "topped": false,
+        "stressed": false
+      },
+      {
+        "id": "n2",
+        "type": "side",
+        "pos": [
+          1,
+          0,
+          35.0
+        ],
+        "age_days": 28,
+        "parent": "n1",
+        "topped": false,
+        "stressed": false
+      }
+    ]
+  },
+  {
+    "day": 35,
+    "nodes": [
+      {
+        "id": "n1",
+        "type": "apical",
+        "pos": [
+          0,
+          0,
+          35.0
+        ],
+        "age_days": 49,
+        "parent": null,
+        "topped": false,
+        "stressed": false
+      },
+      {
+        "id": "n2",
+        "type": "side",
+        "pos": [
+          1,
+          0,
+          35.0
+        ],
+        "age_days": 42,
+        "parent": "n1",
+        "topped": false,
+        "stressed": false
+      }
+    ]
+  }
+]
