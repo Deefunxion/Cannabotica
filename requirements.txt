@@ -1,1 +1,1 @@
-"numpy\npandas\nmatplotlib\n" 
+"numpy\npandas\nmatplotlib" 
