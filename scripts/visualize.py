@@ -21,43 +21,69 @@ class PlantVisualizer:
             raise ValueError("Growth timeline is empty")
         self.index = 0
 
-        self.fig = plt.figure()
-        self.ax = self.fig.add_subplot(111, projection='3d')
-        self.fig.canvas.mpl_connect('key_press_event', self.on_key)
+        self.fig = plt.figure(figsize=(8, 6))
+        self.ax = self.fig.add_subplot(111, projection="3d")
+        self.ax.set_box_aspect((1, 1, 1))  # keep aspect ratio
+        try:
+            self.fig.canvas.manager.set_window_title("Cannabotica Visualizer")
+        except Exception:
+            pass
+
+        self.fig.canvas.mpl_connect("key_press_event", self.on_key)
         self.draw_state()
 
     def draw_state(self):
         """Draw the current state of the plant."""
         self.ax.clear()
         state = self.timeline[self.index]
-        nodes = {n['id']: n for n in state['nodes']}
 
-        # Draw edges
-        for node in state['nodes']:
-            parent_id = node.get('parent')
-            if parent_id:
-                parent = nodes.get(parent_id)
-                if parent:
-                    xs = [parent['pos'][0], node['pos'][0]]
-                    ys = [parent['pos'][1], node['pos'][1]]
-                    zs = [parent['pos'][2], node['pos'][2]]
-                    self.ax.plot(xs, ys, zs, color='gray', linewidth=1)
+        nodes = {n["id"]: n for n in state["nodes"]}
 
-        # Draw nodes
-        for node in state['nodes']:
-            color = 'green' if node['type'] == 'apical' else 'blue'
-            if node.get('topped'):
-                color = 'red'
-            elif node.get('stressed'):
-                color = 'orange'
-            x, y, z = node['pos']
-            self.ax.scatter(x, y, z, color=color, s=50)
-            self.ax.text(x, y, z, node['id'])
+        # Draw branches
+        for node in state["nodes"]:
+            parent_id = node.get("parent")
+            if parent_id and parent_id in nodes:
+                parent = nodes[parent_id]
+                xs = [parent["pos"][0], node["pos"][0]]
+                ys = [parent["pos"][1], node["pos"][1]]
+                zs = [parent["pos"][2], node["pos"][2]]
+                self.ax.plot(xs, ys, zs, color="gray", linewidth=1)
+
+        # Draw nodes and shoots
+        for node in state["nodes"]:
+            x, y, z = node["pos"]
+            is_apical = node["type"] == "apical"
+            color = "forestgreen" if is_apical else "royalblue"
+            if node.get("topped"):
+                color = "crimson"
+            elif node.get("stressed"):
+                color = "darkorange"
+
+            size = 120 if is_apical else 60
+            self.ax.scatter(x, y, z, s=size, color=color, edgecolor="k", zorder=5)
+
+            # Shoots as small cross like branches
+            shoot_len = 0.3
+            directions = [
+                (shoot_len, 0, shoot_len),
+                (-shoot_len, 0, shoot_len),
+                (0, shoot_len, shoot_len),
+                (0, -shoot_len, shoot_len),
+            ]
+            for dx, dy, dz in directions:
+                self.ax.plot(
+                    [x, x + dx],
+                    [y, y + dy],
+                    [z, z + dz],
+                    color=color,
+                    linewidth=1,
+                )
 
         self.ax.set_title(f"Day {state['day']}")
-        self.ax.set_xlabel('X')
-        self.ax.set_ylabel('Y')
-        self.ax.set_zlabel('Z')
+        self.ax.set_xlabel("X")
+        self.ax.set_ylabel("Y")
+        self.ax.set_zlabel("Z")
+        plt.tight_layout()
         plt.draw()
 
     def on_key(self, event):

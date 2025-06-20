@@ -35,10 +35,10 @@ class PlantSimulator:
             parent.children.append(child.id)
         self.day = 0
 
-    def simulate_day(self):
+    def simulate_day(self, growth_factor=1.0):
         self.day += 1
         for node in self.nodes.values():
-            node.grow(growth_factor=1.0)
+            node.grow(growth_factor=growth_factor)
         # Εδώ μπορούμε να βάλουμε logic για topping, supercropping, fimming
 
     def get_state_json(self):
@@ -58,11 +58,24 @@ class PlantSimulator:
             ]
         }
 
-def run_simulation(graph_json, days=35):
+def run_simulation(graph_json, days=35, target_height_cm=100.0):
+    """Simulate plant growth.
+
+    Parameters
+    ----------
+    graph_json : dict
+        Initial plant structure.
+    days : int
+        Number of days to simulate.
+    target_height_cm : float
+        Desired plant height after the simulation period. Used to determine
+        growth per day in this simplified model.
+    """
     sim = PlantSimulator(graph_json)
+    growth_per_day = target_height_cm / days if days > 0 else 1.0
     timeline = []
     for _ in range(days):
-        sim.simulate_day()
+        sim.simulate_day(growth_factor=growth_per_day)
         if sim.day in [7, 14, 21, 35]:
             timeline.append(sim.get_state_json())
     return timeline
