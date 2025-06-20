@@ -1,7 +1,7 @@
 import json
 import os
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 - needed for 3D plotting
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import for 3D
 
 
 def load_json(path):
@@ -21,7 +21,6 @@ class PlantVisualizer:
             raise ValueError("Growth timeline is empty")
         self.index = 0
 
-        # Prepare figure
         self.fig = plt.figure(figsize=(8, 6))
         self.ax = self.fig.add_subplot(111, projection="3d")
         self.ax.set_box_aspect((1, 1, 1))  # keep aspect ratio

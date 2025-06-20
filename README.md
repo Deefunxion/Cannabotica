@@ -32,14 +32,3 @@ Install dependencies with:
 
 ```bash
 pip install -r requirements.txt
-```
-
-### Interactive CLI
-
-Run the guided pipeline:
-
-```bash
-python scripts/interactive_run.py
-```
-
-The script prompts for a plant image, plant height (cm) and plant age (days). After processing, the visualization window opens automatically.
