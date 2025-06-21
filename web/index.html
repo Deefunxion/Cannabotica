@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cannabotica Growth Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cannabotica Growth Viewer</h1>
+    <div id="loader">
+        <input type="file" id="fileInput" accept="application/json">
+        <p>Drag & Drop a Manus JSON file or use the file picker.</p>
+    </div>
+    <div id="controls" class="hidden">
+        <label for="dayRange">Day:</label>
+        <input type="range" id="dayRange" min="0" max="0" value="0">
+        <span id="dayLabel">0</span>
+        <label><input type="checkbox" id="toggleDetails" checked> Details</label>
+        <button id="exportBtn">Export PNG</button>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <div id="tooltip" class="hidden"></div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

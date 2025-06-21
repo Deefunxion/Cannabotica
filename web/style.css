@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+#loader {
+    border: 2px dashed #666;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#loader.dragover {
+    background-color: #e8f4ff;
+}
+
+.hidden {
+    display: none;
+}
+
+#controls {
+    margin-bottom: 10px;
+}
+
+#canvas {
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: grab;
+}
+
+#tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}

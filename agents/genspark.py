@@ -22,6 +22,20 @@ class PlantGraph:
         self.add_node(n1)
         self.add_node(n2)
 
+    def build_from_image(self, image_path):
+        """Placeholder image processing.
+
+        Parameters
+        ----------
+        image_path : str
+            Path to the plant image. The current implementation does not parse
+            the image but ensures that the file exists and then builds the
+            example graph.
+        """
+        with open(image_path, 'rb'):
+            pass  # just validate that the image can be read
+        self.build_example()
+
     def to_json(self):
         return {
             "nodes": [
