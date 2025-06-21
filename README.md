@@ -32,25 +32,10 @@ Install dependencies with:
 
 ```bash
 pip install -r requirements.txt
-```
-
 ### Interactive CLI
 
 Run the guided pipeline:
 
 ```bash
 python scripts/interactive_run.py
-```
 
-The script prompts for a plant image, plant height (cm) and plant age (days). After processing, the visualization window opens automatically.
-
-### Offline Web Viewer
-
-The `web` folder contains an advanced viewer that runs completely offline. Open `web/index.html` in a modern desktop browser and load a Manus JSON timeline via drag & drop or the file picker.
-
-Controls:
-- Slider or arrow keys to step through days with smooth animations.
-- Mouse wheel and drag to zoom and pan the canvas.
-- Hover a node to see details.
-- Toggle the **Details** checkbox to hide or show vigor overlays.
-- Click **Export PNG** to save the current view.
