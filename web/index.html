@@ -15,9 +15,11 @@
         <label for="dayRange">Day:</label>
         <input type="range" id="dayRange" min="0" max="0" value="0">
         <span id="dayLabel">0</span>
+        <label><input type="checkbox" id="toggleDetails" checked> Details</label>
         <button id="exportBtn">Export PNG</button>
     </div>
     <canvas id="canvas" width="800" height="600"></canvas>
-    <script src="app.js"></script>
+    <div id="tooltip" class="hidden"></div>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

@@ -32,10 +32,10 @@ Install dependencies with:
 
 ```bash
 pip install -r requirements.txt
+### Interactive CLI
 
-### Offline Web Viewer
+Run the guided pipeline:
 
-A lightweight web interface is provided for viewing Manus JSON output without a server.
-Generate the JSON files with the pipeline and then open `web/index.html` in a desktop browser.
-Use the file picker or drag and drop to load `data/growth_simulation.json`.
-Move the slider to scrub through the timeline and click **Export PNG** to save a snapshot.
+```bash
+python scripts/interactive_run.py
+
